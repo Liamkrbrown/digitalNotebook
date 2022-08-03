@@ -1,0 +1,41 @@
+@import url("./normalize.css");
+@import url("./globals.css");
+
+/* Header Banner */
+
+h1 {
+    background-color: var(--auburn);
+}
+
+/* Nav Bar */ 
+
+nav#topics ul li a { 
+    border: 1px solid var(--auburn)
+}
+
+nav#topics ul li a:hover { 
+    background-color: var(--auburn);
+}
+/* Main */
+
+
+/* Main > Breakpoints */ 
+
+.img-container { 
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+#breakpoints-reference { 
+    flex-shrink: 2;
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: -0.1em 0.1em 0.7em rgba(0,0,0,0.5);
+
+}
+/* Footer */
+
+footer { 
+    background-color: var(--auburn);
+}

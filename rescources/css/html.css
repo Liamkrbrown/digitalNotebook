@@ -1,0 +1,23 @@
+@import url("./normalize.css");
+@import url("./globals.css");
+
+
+
+/* Header Banner */
+
+h1 {
+    background-color: var(--blue);
+}
+
+/* Main */
+
+/* Main > Code */ 
+code { 
+    background: var(--blue);  
+}
+
+/* Footer */
+
+footer { 
+    background-color: var(--blue);
+}

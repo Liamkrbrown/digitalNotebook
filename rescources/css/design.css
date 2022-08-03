@@ -1,0 +1,87 @@
+/* Design notes page */
+
+/* Color Variables */ 
+
+@import url("./normalize.css");
+@import url("./globals.css");
+
+
+/*General Styling */
+
+
+/* Header Styling */ 
+
+h1 { 
+    background-color: var(--green);
+}
+
+
+/* Nav Bar */ 
+
+nav#topics ul li a { 
+    border: 1px solid var(--green)
+}
+
+nav#topics ul li a:hover { 
+    background-color: var(--green);
+}
+
+
+/* Main */
+
+
+/* Main > Buttons */ 
+
+button { 
+    padding: 1.2em;
+    margin: 1.2em;
+}
+
+.button-example { 
+    display: flex;
+    max-width: fit-content;
+    padding: 0px 15px;
+    margin: auto;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+}
+
+.skeuomorphic { 
+    align-self: left;
+    background-image: linear-gradient(var(--lgreen), var(--dgreen));
+    border-radius: 10px;
+    box-shadow: 1px 1px 5px black;
+}
+
+.skeuomorphic:hover { 
+    background-image: linear-gradient(var(--dgreen), var(--lgreen));
+}
+
+.button-flat { 
+    align-self: right;
+    grid-row: 2;
+    background-color: var(--green);
+    border-radius: 15px;
+    border: 2px solid var(--blackCoffee);
+}
+
+.button-flat:hover{ 
+    opacity: 80%;
+}
+
+.button-flat:active{
+    background-color: var(--dgreen);
+}
+
+
+/* Main > Code */ 
+
+code { 
+    background: var(--green);
+}
+
+/* Footer */
+
+footer { 
+    background-color: var(--green);
+}

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="./rescources/css/javascript.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A Digital Notebook - Liam Brown">
+    <meta name='author' content="Liam Brown-2022">
+    <link rel="icon" href="./rescources/images/JS.png">
+    <title>LB - Virtual Notebook</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@300;400;700&family=Source+Code+Pro:wght@300;400&display=swap" rel="stylesheet">
+</head>
+
+
+<body>
+    <header>
+        <section>
+            <h1>Javascript Notebook. <br> Liam Brown</h1>
+        </section>
+    </header>
+    <main>
+        <nav id="pages">
+            <ul>
+                <li><a class="html" href="index.html">HTML</a></li>
+                <li><a class="css" href="css.html">CSS</a></li>
+                <li><a class= "javascript" href="javascript.html">Javascript</a></li>
+                <li><a class="design" href="design.html">Design</a></li>
+            </ul> 
+        </nav>
+
+        <nav id="topics">
+            <ul>
+                <li><a href="#syntax">Syntax</a></li>
+                <li><a href="#resources">Resources</a></li>
+                
+            </ul>
+        </nav>
+
+
+        <div>
+
+            <article id="syntax">
+                <h2>JS Syntax</h2>
+
+                <h3>Comments</h3>
+                <p>There are two types of code comment sin JS:</p>
+                <ul>
+                    <li><code>//</code> -- A single line comment</li>
+                    <li><code>/* -- */</code> -- A multi line comment </li>
+                </ul>
+
+                <br>
+                <h3>String Interpolation</h3>
+                    <p>In ES6, we can insert, or <emp>interpolate</emp>, variables into strings using <emp>template literals</emp>.</p>
+                    <br>
+                    <p>Things to note: </p>
+                    <ul>
+                       <li>a template literal is wrapped in backticks <code> ` </code></li>
+                       <li>Inside a template literal, you'll see a placeholder, <code>${example}</code>. The value of <code>example</code> is insterted into the template literal</li>
+                    </ul>
+
+                    <p>Example: </p>
+                    <pre><code class="code-snippet">const example-1 = "example";
+    console.log(`This is an ${example-1}.`);
+    // Output: This is an example.</code></pre>
+
+                
+                <h3>typeof Operator</h3>
+
+                    <p>If you need to check a data type of a variable's value, you can use the <code>typeof</code> operator.</p>
+                    <p>The <code>typeof</code> operator checks the value to its right and returns a string of the data type.</p>
+                    
+                    <br>
+                    <pre><code class="code-snippet">const var1 = 'example';
+console.log(typeof var1);
+//Output: string</code></pre>
+
+
+
+                <h3>Short-circuit evaluation</h3>
+
+                    <p>While assigning a variable it is possible to give it a default value if the intentinal assignment is null</p>
+                    <p>This is called a short-circuit evaluation, for example: </p>
+                    <pre><code class=code-snippet>let username = '';
+let defaultName = username || 'Stranger';
+
+console.log(defaultName);
+//Output: Stranger</code></pre>
+
+                    <p>Because <code>||</code> or statements check the left-hand condition first, the variable <code>defaultName</code> will be asigned the actual value of <code>username</code> if it is 'truthy', and it will be assigned the value of 'Stranger' if <code>username</code> is 'falsy'.</p>
+
+
+
+                <h3>Ternary Operator</h3>
+                
+                    <p>We can use a ternary operator to simplify an <code>if...else</code> statement.</p>
+                    <p>Take a look at the <code>if...else</code> statement example: </p>
+                    <pre><code class="code-snippet"> let isNightTime = true;
+if (isNightTime) { 
+    console.log('Turn on the lights!');
+} else { 
+    console.log('Turn off the lights!');
+}</code></pre>
+
+                    <p>We can use a ternary operator to perform the same functionality: </p>
+                    <pre><code class="code-snippet">isNightTime ? console.log('Turn on the lights!') : 
+console.log('Turn off the lights!');
+                    </code></pre>
+
+                    <p>In the example above: </p>
+                    <ol>
+                        <li>The condition, <code>isNightTime</code>, is provided before the <code> ? </code>.</li>
+                        <li>Two expressions follow the <code> ? </code> and are seperated by a colon <code> : </code>.</li>
+                        <li>If the condisiton evalutes to true, the first expression executes</li>
+                        <li>If the condisiton evalutes to false, the second expression executes</li>
+                    </ol>
+                    
+                    <p>Like <code>if...else</code> statements, ternary operators can be used for conditions which evaluate to true or false.</p>
+            
+                <h3>Switch Keyword</h3>
+                    <p>A <code>switch</code> statement provides an alternative syntax to <code>else if </code> statements that are easier to read and write.</p>
+                    <p>A <code>switch</code> statements looks like this: </p>
+                    <pre><code class="code-snippet">let groceryItem = 'papaya';
+switch (groceryItem) {
+    case 'tomato':
+        console.log('Tomatoes are $0.49');
+        break;
+    case 'lime':
+        console.log('Limes are $1.49');
+        break;
+    case 'papaya':
+        console.log('Papayas are $1.29');
+        break;
+    default:
+        console.log('Invalid item');
+        break;
+}
+    
+// Prints 'Papayas are $1.29'</code></pre>
+            
+
+                <h3>Function Expressions</h3>
+                <p>Another way to define a function is to use a function expression. To define a function inside an expression, we can use the function keyword. In a function expression, the function name is usually omitted. A function with no name is called an anonymous function. A function expression is often stored in a variable in order to refer to it.</p>
+                <img src="./rescources/images/FunctionExpression.png" alt="Image of a function expression">
+                <p>To declare a function expression: </p>
+                <ol>
+                    <li>Declare a variable to make the variable's name be the name, or identifier, of your function. Since the release of ES6, it is common practice to use the <code>const</code> as the ketword to declare the variable.</li>
+                    <li>Assign as that variable's value an anonymous function created by using the function keyword followed by a set of parentheses with possible parameters. Then a set of curly braces that contain the function body.</li>
+                </ol>
+                <p>To invoke a function expression, write the name of the variable in which the function is stored followed by parentheses enclosing any arguments being passed into the function.</p>
+                <code>VariableName(argument1, argument2)</code>
+                <p>Unlike function declarations, function expressions are not hoisted so they cannot be called before they are defined.</p>
+
+
+                <h3>Arrow Functions</h3>
+
+                    <p>ES6 introduced arrow function syntax, a shorter way to write functions by using the special "fat arrow" <code>() =></code> notation.</p>
+                    <br>
+                    <p>Arrow functions remove the need to type out the keyword <code>function</code> everytime you nede to create a function. Instead, you first include the parameters inside the <code> ( ) </code> and then add an arrow <code> => </code> that points to the function body surrounded in <code> { } </code> like this: </p>
+                    <pre><code class="code-snippet">const rectangleArea = (width, height) => {
+    let area = width * height;
+    return area;
+};</code></pre><br>
+
+                <h3>Concise Body Arrow Functions</h3>
+                <br>
+                    <p>Javascript also provides several way to refactor arrow function syntax. The most condensed form of the function is known as concise body.</p>
+                    <ol>
+                        <li>Functions that take only a single paramter do not need that parameter to be encolsed in parentheses. However if a function takes zero or multiple parameteres, parentheses are required.
+                            <br>
+                            <p>ZERO PARAMETERS</p>
+                            <code class="code-snippet">const functionName = () => {};</code>
+                            <br>
+                            <p>ONE PARAMETERS</p>
+                            <code class="code-snippet">const functionName = paramOne => {};</code>
+                            <br>
+                            <p>TWO OR MORE PARAMETERS</p>
+                            <code class="code-snippet">const functionName = (paramOne, paramTWO) => {};</code>
+                            <br>
+                        </li>
+                        <li>A function body composed of a single-line block does not need curly braces. Wihtout the curly braces, whatever that line evalutes will be automatically returned. The contents of the block should immediately follow the arrow <code>=></code> and the <code>return</code> keyword is removed. This is referred to as <strong>implicit</strong> return
+                            <p>SINGLE LINE BLOCK</p>
+                            <code class="code-snippet"> const sumNumber = number => number + number;</code>
+                            <br>
+                            <p>MULTI LINE BLOCK</p>
+                            <pre><code class="code-snippet"> const sumNumber = number => {
+    const sum = number + number;
+    return sum;
+}</pre></code>
+                        </li>
+                    </ol>
+
+
+            </article>
+
+            <article id="resources">
+                <li class="bookmark">
+                    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" >
+                        <h3> MDN docs for Javascript </h3>
+                        <p> List of all helpful info on JS from Mozilla</p>
+                    </a>
+                <li class="bookmark">
+                    <a href="https://www.codecademy.com/resources/docs/javascript" target="_blank" >
+                        <h3> Codecademy docs for Javascript </h3>
+                        <p> List of all helpful info on JS from Codecademy</p>
+                    </a>
+            </article>
+
+
+        </div>
+    </main>
+
+    <footer>
+        <p>Designed by Liam Brown. For Liam Brown</p>
+    </footer>
+
+    
+</body>
+</html>

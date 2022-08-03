@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="./rescources/css/design.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A Digital Notebook - Liam Brown">
+    <meta name='author' content="Liam Brown-2022">
+    <link rel="icon" href="./rescources/images/pencil.png">
+    <title>LB - Virtual Notebook</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@300;400;700&family=Source+Code+Pro:wght@300;400&display=swap" rel="stylesheet">
+</head>
+
+
+<body>
+    <header>
+        <section>
+            <h1>Design Notebook. <br> Liam Brown</h1>
+        </section>
+    </header>
+    <main>
+        <nav id="pages">
+            <ul>
+                <li><a class="html" href="index.html">HTML</a></li>
+                <li><a class="css" href="css.html">CSS</a></li>
+                <li><a class= "javascript" href="javascript.html">Javascript</a></li>
+                <li><a class="design" href="design.html">Design</a></li>
+            </ul> 
+        </nav>
+
+        <nav id="topics">
+            <ul>
+                <li><a href="#skeuo">Skeuomorphism and Flat Design</a></li>
+                <li><a href="#semantic-colors">Color Semantics</a></li>
+                <li><a href="#design-philo">Design Philosphies for Browser Compatibilty</a></li>
+                <li><a href="#resources">HTML Recources</a></li>
+            </ul>
+        </nav>
+        
+    <div>
+        <article id="skeuo">
+            
+            <h2>Skeuomorphism and Flat Design</h2>
+            <br>
+            <p>Buttons are another fundamental element of user interaction and navigation. They are called ‘buttons’ because they are often modeled on the appearance and behavior of real-life buttons. The concept of UI elements that replicate or imitate real-life counterparts is known as <em>skeuomorphism.</em></p><br>
+            <p>In design, <strong>skeuomorphism</strong> is helpful for lowering the learning curve for users. If users can draw a metaphor between a familiar real-life object and an interface element, they are more likely to know how to use it without training. In the example of the button, if a web button appears similar to a real-life button on a physical interface, users can reliably figure out that the way to interact with the button is to press it.</p><br>
+            <p><strong>Flat design</strong> is an alternative approach to skeuomorphism which embraces the fact that computer interfaces do not necessarily need to model real-life interfaces. As users grow more familiar with digital displays and interfaces, designers have felt less need to model physical interactions and instead rely on other signifiers to indicate interactive elements. To generalize, flat design uses simplicity and lack of clutter for its UI elements.</p><br>
+
+            <div class="button-example">
+                <button class="skeuomorphic">Skeuomorphic</button>
+
+                <button class="button-flat">Flat Design</button>
+            </div>
+        </article>
+
+        <article id="semantic-colors">
+
+            <h2>Semantic Colors</h2>
+
+            <p>People make mistakes. We’re all human. So when designing user input elements, you must understand that errors will arise. When this happens, users should be alerted to understand where they went wrong. A common design pattern color used for this indicator is red.<br>
+                <br>
+                Red is also used to provide more emphasis for delete buttons. If the user wishes or is required to delete something, it should be abundantly clear that the delete action is different from a normal action.<br>
+                <br>
+                On the other hand, when a user achieves their goal without issue or does something right, you should reward them! A good way to do that is through the use of green as a success message. Green is also often used for actions that entice the user to submit, move forward, or go.<br>
+                <br>
+                Not all errors are caused by the user. Sometimes, the code just breaks! If an error occurs on the website and we need to notify the user, we should consider selecting a color that indicates the issue level and one that does not conflict with our action colors. A typical color for these warning situations is yellow.<br>
+                <br>
+                The visual feedback you provide users with when they interact with your interface is incredibly important. It can help alleviate pain points some users might experience.
+            </p>
+        </article>
+
+        <article id="design-philo">
+
+            <h2>Design Philosphies for Browser Compatibilty</h2>
+            <br>
+            <p>There are two design philosphies for making websites compatible across browsers: graceful degradation and progressive enhancement. The tools you use will depend on the approach you take. Feature queries are a tool best used in a progressive enhancement approach.</p>
+            <br>
+            <h3>Graceful degradation</h3>
+            <br>
+                <p><emp>Graceful degradation</emp> is the idea of working your way down to simpler code when the more complex code fails. We can think of this as a top-down approach.</p>
+                <p>Consider the following code exmaple that uses the linear-gradient feature: </p>
+                <pre><code class="code-snippet">.button { 
+    /* Use the newer feature by default */ 
+    background: linear-gradient(red, white, blue);
+}
+@supports not (background: linear-gradient(red, white, blue)) {
+    .button { 
+        /* Have a more basic fautre as a backup in case the newer feature
+is not supported */ 
+        background-color: blue;
+    }
+}</code></pre>
+
+                <p>There are several problems with the above code. First, the @supports query accomplishes nothing that a standard CSS cascade would not. Second, this code depends on not logic to determine if a feature is not supported. Additionally, if CSS feature queries are not supported, the nested ruleset will be ignored entirely. As a result, if the browser does not support the linear-gradient feature as well as the @supports at-rule, elements of the button class will not be styled at all.</p>
+                <p>This can be fixed using CSS cascading: </p>
+                <pre><code class="code-snippet">.button { 
+    /* The button will be blue by defualt */
+    background-color: blue;
+    /* linear-gradient will override the blue button if the feature is 
+supported */
+    background-color: linear-gradient(red, white, blue);
+}</code></pre>
+
+            <h3>Progressive Enhancement</h3>
+            <br>
+                <p><emp>Progressive enhancement</emp> is the idea of working your way up to more sopshiticated code if the browser supports it. We can think of this as a bottom-up approach. Consider the following cod eexmaple that uses the object-fit propertyt: </p>
+                <pre><code class=code-snippet>img { 
+    position: absolute;
+    height: 50%;
+    width: 100%;
+}
+
+@supports (object-fit: cover) {
+    img { 
+    /* override previous settings if necessary */
+    position: static;    
+    /* Use newer features */ 
+    object-fit: cover;
+    }
+}</code></pre>
+                <p>In this example, if the object-fit property is supported, the ruleset inside the @supports at-rule will override the previous ruleset for the img selector. If the browser does not support feature queries, the first ruleset for the img selector will not be overriden.</p>
+        
+        </article>
+    </div>
+
+    </main>
+    
+    <footer>
+        <p>Designed by Liam Brown. For Liam Brown</p>
+    </footer>
+
+</body>
+</html>

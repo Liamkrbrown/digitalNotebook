@@ -1,0 +1,34 @@
+@import url("./normalize.css");
+@import url("./globals.css");
+
+/* Header Banner */
+
+h1 {
+    background-color: var(--yellow);
+    color: var(--blackCoffee);
+}
+/* Nav Bar */ 
+
+nav#topics ul li a { 
+    border: 1px solid var(--yellow)
+}
+
+nav#topics ul li a:hover { 
+    background-color: var(--yellow);
+}
+
+/* Main */
+
+
+/* Main > Code */ 
+
+code { 
+    background: var(--yellow);
+}
+
+/* Footer */
+
+footer { 
+    background-color: var(--yellow);
+    color: var(--blackCoffee);
+}

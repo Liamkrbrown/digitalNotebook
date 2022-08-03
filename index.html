@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="./rescources/css/html.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A Digital Notebook - Liam Brown">
+    <meta name='author' content="Liam Brown-2022">
+    <link rel="icon" href="./rescources/images/html.png">
+    <title>LB - Virtual Notebook</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@300;400;700&family=Source+Code+Pro:wght@300;400&display=swap" rel="stylesheet">
+</head>
+
+
+<body>
+    <header>
+        <section>
+            <h1>HTML Notebook. <br> Liam Brown</h1>
+        </section>
+    </header>
+    <main>
+        <nav id="pages">
+            <ul>
+                <li><a class="html" href="index.html">HTML</a></li>
+                <li><a class="css" href="css.html">CSS</a></li>
+                <li><a class= "javascript" href="javascript.html">Javascript</a></li>
+                <li><a class="design" href="design.html">Design</a></li>
+            </ul> 
+        </nav>
+
+        <nav id="topics">
+            <ul>
+                <li><a href="#headings">HTML Headings Elements</a></li>
+                <li><a href="#semantics">HTML Semantics</a></li>
+                <li><a href="#tables">HTML Tables</a></li>
+                <li><a href="#meta">Meta Tags</a></li>
+                <li><a href="#resources">HTML Recources</a></li>
+            </ul>
+        </nav>
+        
+    <div>
+        <article id="headings">
+            <h2>HTML Headings Elements</h2>
+            <p>The &lt;h1&gt; to &lt;h6&gt; HTML elements represent six levels of section headings. &lt;h1&gt; is the highest section level and &lt;h6&gt; is the lowest.</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Element</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>&lt;h1&gt;</code></td>
+                        <td>Heading level 1</td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;h2&gt;</code></td>
+                        <td>Heading level 2</td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;h3&gt;</code></td>
+                        <td>Heading level 3</td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;h4&gt;</code></td>
+                        <td>Heading level 4</td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;h5&gt;</code></td>
+                        <td>Heading level 5</td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;h6&gt;</code></td>
+                        <td>Heading level 6</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Best Practices for Headings</h3>
+            <p>As a best practice, the following HTML elements are used to differentiate text into categories:<br>
+            <code>&lt;h1&gt;</code> — Used for titles.<br>
+            You should only have one header this style per page.<br>
+            <code>&lt;h2&gt;</code> — Used for headings.<br>
+            This should be to identify major sections you want the user to immediately be drawn towards.<br>
+            <code>&lt;h3&gt;</code> — Used for subheadings.<br>
+            This should be used for smaller focal points, such as articles, that you want the user to notice when scanning the page.<br></p>
+        </article>
+        <article id="semantics">
+            <h2>HTML Semantics</h2>
+            <p>Many web sites contain HTML code like: <code>&lt;div id="nav">&lt;/div></code> <code>&lt;div class="header"&gt;&lt;/div&gt;</code> <code>&lt;div id="footer"&gt;&lt;/div&gt;</code> to indicate navigation, header, and footer.
+
+            In HTML there are some semantic elements that can be used to define different parts of a web page:</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Element</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>&lt;article&gt;</code></td>
+                        <td>This HTML element represents a self-contained composition in a document, page, application, or site, which is intended to be independently distributable or reusable (e.g., in syndication). Examples include: a forum post, a magazine or newspaper article, or a blog entry, a product card, a user-submitted comment, an interactive widget or gadget, or any other independent item of content.</td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;aside&gt;</code></td>
+                        <td>This HTML element represents a portion of a document whose content is only indirectly related to the document's main content. Asides are frequently presented as sidebars or call-out boxes.</td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;figcaption&gt;</code></td>
+                        <td>This HTML element represents a caption or legend describing the rest of the contents of its parent <code>&lt;figure&gt;</code> element.</td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;figure&gt;</code></td>
+                        <td>This HTML element represents self-contained content, potentially with an optional caption, which is specified using the <code>&lt;figcaption&gt;</code> element. The figure, its caption, and its contents are referenced as a single unit.</td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;footer&gt;</code></td>
+                        <td>This HTML element represents a footer for its nearest ancestor sectioning content or sectioning root element. A <code>&lt;footer&gt;</code> typically contains information about the author of the section, copyright data or links to related documents.</td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;header&gt;</code></td>
+                        <td>This HTML element represents introductory content, typically a group of introductory or navigational aids. It may contain some heading elements but also a logo, a search form, an author name, and other elements.</td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;main&gt;</code></td>
+                        <td>This HTML element represents the dominant content of the <code>&lt;body&gt;</code> of a document. The main content area consists of content that is directly related to or expands upon the central topic of a document, or the central functionality of an application.</td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;nav&gt;</code></td>
+                        <td>This HTML element represents a section of a page whose purpose is to provide navigation links, either within the current document or to other documents. Common examples of navigation sections are menus, tables of contents, and indexes.</td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;section&gt;</code></td>
+                        <td>This HTML element represents a generic standalone section of a document, which doesn't have a more specific semantic element to represent it. Sections should always have a heading, with very few exceptions.</td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;abbr&gt;</code></td>
+                        <td>The &lt;<abbr title="Abbreviation">abbr</abbr>&gt; is used to show definitions of abbreviations on a page.</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </article>
+
+            <article id="tables">
+                <h2>HTML Tables</h2>
+                <p>References for table creation within HTML</p>
+
+                <table>
+                    <h3>Table Tags</h3>
+                        <thead>
+                            <tr>
+                                <th>Tag</th>
+                                <th>Name</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+        
+                        <tbody>
+                            <tr>
+                                <td><code>&lt;table&gt;</code></td>
+                                <td>Table</td>
+                                <td>The wrapper element for all HTML tables.</td>
+                            </tr>
+                            <tr>
+                                <td><code>&lt;thead&gt;</code></td>
+                                <td>Table Head</td>
+                                <td>The set of rows defining the column headers in a table</td>
+                            </tr>
+                            <tr>
+                                <td><code>&lt;tbody&gt;</code></td>
+                                <td>Table Body</td>
+                                <td>The set of rows containing the actual table data.</td>
+                            </tr>
+                            <tr>
+                                <td><code>&lt;tr&gt;</code></td>
+                                <td>Table Row</td>
+                                <td>The table row container</td>
+                            </tr>
+                            <tr>
+                                <td><code>&lt;td&gt;</code></td>
+                                <td>Table Data</td>
+                                <td>The Data container for each column</td>
+                            </tr>
+                            <tr>
+                                <td><code>&lt;tfoot&gt;</code></td>
+                                <td>Table</td>
+                                <td>The set of rows defining the footer in a table.</td>
+                            </tr>
+                        </tbody>
+                        <table>
+                    <h3>Table Attributes</h3>
+                        <thead>
+                            <tr>
+                                <th>Attribute</th>
+                                <th>Name</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+        
+        
+                        <tbody>
+                            <tr>
+                                <td><code>&lt;colspan&gt;</code></td>
+                                <td>Column Span</td>
+                                <td>Defines how many columns a td element will span</td>
+                            </tr>
+                            <tr>
+                                <td><code>&lt;rowspan&gt;</code></td>
+                                <td>Row Span</td>
+                                <td>Defines how many rows a td element will span</td>
+                            </tr>
+                            
+                        </tbody>
+                </table>
+            </article>
+
+            <article id="meta">
+                <h2>Meta Tags</h2>
+                <p>There are a view Meta Data tags that are useful within HTML5</p>
+                <p>These are tags defined within the head element</p>
+
+                <p>Example: </p>
+                <pre><code class="code-snippet">&lt;head&gt;
+&lt;link rel="stylesheet" href="./rescources/css/html.css"&gt;
+&lt;meta charset="UTF-8"&gt;
+&lt;meta http-equiv="X-UA-Compatible" content="IE=edge"&gt;
+&lt;title&gt;LB - Virtual Notebook&lt;/title&gt;
+&lt;link rel="preconnect" href="https://fonts.googleapis.com"&gt;
+&lt;/head&gt;</code></pre>
+
+                <h3>Viewport Meta Tag</h3>
+                    <hr>
+                    <p> the viewport, which is the total viewable area for a user, this area varies depending on device. The viewport is smaller on a mobile device and larger on a desktop.</p>
+                    <br>
+                    <p>Based on the size of the viewport, the meta tag (&lt;meta&gt;) is used to instruct the browser on how to render the webpage’s scale and dimensions. For instance, say if a web page is 960px and the device is 320px wide. Adding the viewport meta tag will squish the content down until it is 320px — there is no need for the user to zoom out and view the whole page!</p>
+                    <br>
+                    <p>Example; </p>
+                    <pre><code class="code-snippet">&lt;meta name="viewport" content="device-width, initial-scale=1"</code></pre>
+                    <p>We can break down the added &lt;meta&gt; tag into the following essential components:</p>
+                    <ul>
+                        <li>the name="viewport" attribute: tells the browser to display the web page at the same width as its screen</li>
+                        <li>the content attribute: defines the values for the &lt;meta&gt; tag, including <code>width</code> and <code>initial-scale</code></li>
+                        <li>the width="device-width" key-value pair: controls the size of the viewport in which it sets the width of the vewport to eqaul the width of the device.</li>
+                        <li>the inital-scale="1" key-value pair: sets the initail zoom level (Read more about scale at <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Viewport_meta_tag#viewport_basics">MDN's viewport docs</a></li>
+                    </ul>
+
+                    <p>The viewport meta tag allows our web pages to be responsive and adapt a site's contents to the user's screen size.</p>
+                    
+
+            </article>
+
+            <article id="resources">
+                <h2> HTML Rescources </h2>
+                <p> some Helpful links and rescources for bookmarking.</p> 
+
+                <ul> 
+                    <li class="bookmark">
+                        <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element" target="_blank" >
+                            <h3> MDN docs for HTML </h3>
+                            <p> List of all helpful info on HTML from Mozilla</p>
+                        </a>
+                    </li>
+                    <li class="bookmark">
+                        <a href="https://www.codecademy.com/resources/docs/html" target="_blank" >
+                            <h3> CodeCadamy </h3>
+                            <p> HTML Docs from Codecademy themselves! </p>
+                        </a>
+                    </li>
+                    <li class="bookmark">
+                        <a href="https://www.google.com" target="_blank" >
+                            <h3> Google </h3>
+                            <p> Google is always a developers best friends.</p>
+                        </a>
+                    </li>
+
+                </ul>
+
+
+            </article>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>Designed by Liam Brown. For Liam Brown</p>
+    </footer>
+</body>
+</html>
