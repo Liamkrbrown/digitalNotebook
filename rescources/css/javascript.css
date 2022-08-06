@@ -21,10 +21,12 @@ nav#topics ul li a:hover {
 
 
 /* Main > Code */ 
-
+/*
 code { 
     background: var(--yellow);
+    color: var(--blackCoffee);
 }
+*/
 
 /* Footer */
 
@@ -32,3 +34,4 @@ footer {
     background-color: var(--yellow);
     color: var(--blackCoffee);
 }
+

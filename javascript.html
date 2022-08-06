@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" href="./rescources/css/javascript.css">
+    <link rel="stylesheet" href="./rescources/highlighting/prism.css">
+    <script src="./rescources/highlighting/prism.js"></script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -34,8 +36,9 @@
             <ul>
                 <li><a href="#syntax">Syntax</a></li>
                 <li><a href="#arrays">Arrays</a></li>
+                <li><a href="#loops">Loops</a></li>
+                <li><a href="#objects">Objects</a></li>
                 <li><a href="#resources">Resources</a></li>
-                
             </ul>
         </nav>
 
@@ -48,33 +51,32 @@
                 <h3>Comments</h3>
                 <p>There are two types of code comment sin JS:</p>
                 <ul>
-                    <li><code>//</code> -- A single line comment</li>
-                    <li><code>/* -- */</code> -- A multi line comment </li>
+                    <li><code class="language-js">//</code> -- A single line comment</li>
+                    <li><code class="language-js">/* -- */</code> -- A multi line comment </li>
                 </ul>
 
-                <br>
                 <h3>String Interpolation</h3>
                     <p>In ES6, we can insert, or <emp>interpolate</emp>, variables into strings using <emp>template literals</emp>.</p>
                     <br>
                     <p>Things to note: </p>
                     <ul>
-                       <li>a template literal is wrapped in backticks <code> ` </code></li>
-                       <li>Inside a template literal, you'll see a placeholder, <code>${example}</code>. The value of <code>example</code> is insterted into the template literal</li>
+                       <li>a template literal is wrapped in backticks <code class="language-js"> ` </code></li>
+                       <li>Inside a template literal, you'll see a placeholder, <code class="language-js">${example}</code>. The value of <code class="language-js">example</code> is insterted into the template literal</li>
                     </ul>
 
                     <p>Example: </p>
-                    <pre><code class="code-snippet">const example-1 = "example";
+                    <pre><code class="language-js">const example-1 = "example";
     console.log(`This is an ${example-1}.`);
     // Output: This is an example.</code></pre>
 
                 
                 <h3>typeof Operator</h3>
 
-                    <p>If you need to check a data type of a variable's value, you can use the <code>typeof</code> operator.</p>
-                    <p>The <code>typeof</code> operator checks the value to its right and returns a string of the data type.</p>
+                    <p>If you need to check a data type of a variable's value, you can use the <code class="language-js">typeof</code> operator.</p>
+                    <p>The <code class="language-js">typeof</code> operator checks the value to its right and returns a string of the data type.</p>
                     
                     <br>
-                    <pre><code class="code-snippet">const var1 = 'example';
+                    <pre><code class="language-js">const var1 = 'example';
 console.log(typeof var1);
 //Output: string</code></pre>
 
@@ -84,21 +86,21 @@ console.log(typeof var1);
 
                     <p>While assigning a variable it is possible to give it a default value if the intentinal assignment is null</p>
                     <p>This is called a short-circuit evaluation, for example: </p>
-                    <pre><code class=code-snippet>let username = '';
+                    <pre><code class=language-js>let username = '';
 let defaultName = username || 'Stranger';
 
 console.log(defaultName);
 //Output: Stranger</code></pre>
 
-                    <p>Because <code>||</code> or statements check the left-hand condition first, the variable <code>defaultName</code> will be asigned the actual value of <code>username</code> if it is 'truthy', and it will be assigned the value of 'Stranger' if <code>username</code> is 'falsy'.</p>
+                    <p>Because <code class="language-js">||</code> or statements check the left-hand condition first, the variable <code class="language-js">defaultName</code> will be asigned the actual value of <code class="language-js">username</code> if it is 'truthy', and it will be assigned the value of 'Stranger' if <code class="language-js">username</code> is 'falsy'.</p>
 
 
 
                 <h3>Ternary Operator</h3>
                 
-                    <p>We can use a ternary operator to simplify an <code>if...else</code> statement.</p>
-                    <p>Take a look at the <code>if...else</code> statement example: </p>
-                    <pre><code class="code-snippet"> let isNightTime = true;
+                    <p>We can use a ternary operator to simplify an <code class="language-js">if...else</code> statement.</p>
+                    <p>Take a look at the <code class="language-js">if...else</code> statement example: </p>
+                    <pre><code class="language-js"> let isNightTime = true;
 if (isNightTime) { 
     console.log('Turn on the lights!');
 } else { 
@@ -106,24 +108,24 @@ if (isNightTime) {
 }</code></pre>
 
                     <p>We can use a ternary operator to perform the same functionality: </p>
-                    <pre><code class="code-snippet">isNightTime ? console.log('Turn on the lights!') : 
+                    <pre><code class="language-js">isNightTime ? console.log('Turn on the lights!') : 
 console.log('Turn off the lights!');
                     </code></pre>
 
                     <p>In the example above: </p>
                     <ol>
-                        <li>The condition, <code>isNightTime</code>, is provided before the <code> ? </code>.</li>
-                        <li>Two expressions follow the <code> ? </code> and are seperated by a colon <code> : </code>.</li>
+                        <li>The condition, <code class="language-js">isNightTime</code>, is provided before the <code class="language-js"> ? </code>.</li>
+                        <li>Two expressions follow the <code class="language-js"> ? </code> and are seperated by a colon <code class="language-js"> : </code>.</li>
                         <li>If the condisiton evalutes to true, the first expression executes</li>
                         <li>If the condisiton evalutes to false, the second expression executes</li>
                     </ol>
                     
-                    <p>Like <code>if...else</code> statements, ternary operators can be used for conditions which evaluate to true or false.</p>
+                    <p>Like <code class="language-js">if...else</code> statements, ternary operators can be used for conditions which evaluate to true or false.</p>
             
                 <h3>Switch Keyword</h3>
-                    <p>A <code>switch</code> statement provides an alternative syntax to <code>else if </code> statements that are easier to read and write.</p>
-                    <p>A <code>switch</code> statements looks like this: </p>
-                    <pre><code class="code-snippet">let groceryItem = 'papaya';
+                    <p>A <code class="language-js">switch</code> statement provides an alternative syntax to <code class="language-js">else if </code> statements that are easier to read and write.</p>
+                    <p>A <code class="language-js">switch</code> statements looks like this: </p>
+                    <pre><code class="language-js">let groceryItem = 'papaya';
 switch (groceryItem) {
     case 'tomato':
         console.log('Tomatoes are $0.49');
@@ -147,20 +149,20 @@ switch (groceryItem) {
                 <img src="./rescources/images/FunctionExpression.png" alt="Image of a function expression">
                 <p>To declare a function expression: </p>
                 <ol>
-                    <li>Declare a variable to make the variable's name be the name, or identifier, of your function. Since the release of ES6, it is common practice to use the <code>const</code> as the ketword to declare the variable.</li>
+                    <li>Declare a variable to make the variable's name be the name, or identifier, of your function. Since the release of ES6, it is common practice to use the <code class="language-js">const</code> as the ketword to declare the variable.</li>
                     <li>Assign as that variable's value an anonymous function created by using the function keyword followed by a set of parentheses with possible parameters. Then a set of curly braces that contain the function body.</li>
                 </ol>
                 <p>To invoke a function expression, write the name of the variable in which the function is stored followed by parentheses enclosing any arguments being passed into the function.</p>
-                <code>VariableName(argument1, argument2)</code>
+                <code class="language-js">VariableName(argument1, argument2)</code>
                 <p>Unlike function declarations, function expressions are not hoisted so they cannot be called before they are defined.</p>
 
 
                 <h3>Arrow Functions</h3>
 
-                    <p>ES6 introduced arrow function syntax, a shorter way to write functions by using the special "fat arrow" <code>() =></code> notation.</p>
+                    <p>ES6 introduced arrow function syntax, a shorter way to write functions by using the special "fat arrow" <code class="language-js">() =></code> notation.</p>
                     <br>
-                    <p>Arrow functions remove the need to type out the keyword <code>function</code> everytime you nede to create a function. Instead, you first include the parameters inside the <code> ( ) </code> and then add an arrow <code> => </code> that points to the function body surrounded in <code> { } </code> like this: </p>
-                    <pre><code class="code-snippet">const rectangleArea = (width, height) => {
+                    <p>Arrow functions remove the need to type out the keyword <code class="language-js">function</code> everytime you nede to create a function. Instead, you first include the parameters inside the <code class="language-js"> ( ) </code> and then add an arrow <code class="language-js"> => </code> that points to the function body surrounded in <code class="language-js"> { } </code> like this: </p>
+                    <pre><code class="language-js">const rectangleArea = (width, height) => {
     let area = width * height;
     return area;
 };</code></pre><br>
@@ -172,21 +174,21 @@ switch (groceryItem) {
                         <li>Functions that take only a single paramter do not need that parameter to be encolsed in parentheses. However if a function takes zero or multiple parameteres, parentheses are required.
                             <br>
                             <p>ZERO PARAMETERS</p>
-                            <code class="code-snippet">const functionName = () => {};</code>
+                            <code class="language-js">const functionName = () => {};</code>
                             <br>
                             <p>ONE PARAMETERS</p>
-                            <code class="code-snippet">const functionName = paramOne => {};</code>
+                            <code class="language-js">const functionName = paramOne => {};</code>
                             <br>
                             <p>TWO OR MORE PARAMETERS</p>
-                            <code class="code-snippet">const functionName = (paramOne, paramTWO) => {};</code>
+                            <code class="language-js">const functionName = (paramOne, paramTWO) => {};</code>
                             <br>
                         </li>
-                        <li>A function body composed of a single-line block does not need curly braces. Wihtout the curly braces, whatever that line evalutes will be automatically returned. The contents of the block should immediately follow the arrow <code>=></code> and the <code>return</code> keyword is removed. This is referred to as <strong>implicit</strong> return
+                        <li>A function body composed of a single-line block does not need curly braces. Wihtout the curly braces, whatever that line evalutes will be automatically returned. The contents of the block should immediately follow the arrow <code class="language-js">=></code> and the <code class="language-js">return</code> keyword is removed. This is referred to as <strong>implicit</strong> return
                             <p>SINGLE LINE BLOCK</p>
-                            <code class="code-snippet"> const sumNumber = number => number + number;</code>
+                            <code class="language-js"> const sumNumber = number => number + number;</code>
                             <br>
                             <p>MULTI LINE BLOCK</p>
-                            <pre><code class="code-snippet"> const sumNumber = number => {
+                            <pre><code class="language-js"> const sumNumber = number => {
     const sum = number + number;
     return sum;
 }</pre></code>
@@ -203,18 +205,431 @@ switch (groceryItem) {
 
                     <h3>Built in methods</h3>
 
-                    <h4><code>.length</code></h`4>
-                        <p><code>.length</code> returns the number of items in an array. similarly to the string property</p>
+                    <h4>.length</h4>
+                        <p><code class="language-js">.length</code> returns the number of items in an array. similarly to the string property</p>
                         <br>
-                    <h4><code>.push()</code></h4>
-                        <p><code>.push()</code> adds item(s) to the end of an array. i.e .append</p>
+                    <h4>.push()</h4>
+                        <p><code class="language-js">.push()</code> adds item(s) to the end of an array. i.e .append</p>
                         <br>
-                        <pre><code class='code-snippet'>example.push('item1', 'item2');
+                        <pre><code class='language-js'>example.push('item1', 'item2');
 //Adds item1 and item2 to the end of example.</code></pre>
-                    <h4><code>.pop()</code></h4>
-                    <p><code>.pop()</code> removes the last item of an array and returns it if called.</p>
-                    <h4><code>.join()</code></h4>
+                    <h4>.pop()</h4>
+                    <p><code class="language-js">.pop()</code> removes the last item of an array and returns it if called.</p>
+                    <h4>.join()</h4>
+                    <p></p>
+                    <h4>.split()</h4>
+                    <p></p>
+                    <h4>.splice()</h4>
+                    <p></p>
+            </article>
+
+            <article id="loops">
+                <h2>Loops</h2>
+
+                <h4>For...of</h4>
+                <hr>
+                <p>The ES6 version of JS introduced the shorter and more concise <code class="language-js">for..of</code> loop. This will outline the benifits of of suing the <code class="language-js">for..of</code> loops.</p>
+
+                <h3>For loop vs for...of loop</h3>
+                <p>Here is an example of iterating over each element in an array using a traditional for loop with an index variable: </p>
+                <pre><code class="language-js">const hobbies = ['running', 'climbing', 'coding', 'writing']
+
+for (let i = 0; i < hobbies.length; i++) { 
+    console.log(`I enjoy ${hobbies[i]}).`);
+}</code></pre>
+                <p>And here is an example of iterating through the same array using a for...of loop: </p>
+                <pre><code class="language-ls">const hobbies = ['running', 'climbing', 'coding', 'writing']
+
+for (const hobby of hobbies) { 
+    console.log(`I enjoy ${hobby}.`);
+}</code></pre>
+
+                <p>Both exmaple print out the same thing.</p>
+                <ol>
+                    <li>In the code snippet, we have hobbies, which is the array we want to itterate over.</li>
+                    <li>The for...of loop specifies that we will iterate through the array and for each item in the array.</li>
+                    <li>The variable hobby is assigned a different value on each iteration of the loop. The variable may be declared with the keywords: <code class="language-js">const</code>, <code class="language-js">let</code> or <code class="language-js">var</code>. You can name the variable anything but it is helpful to use a name related to the iterable object. In the example, notice the placeholder var uses the singular form of a plural array.</li>
+                </ol>
+                <p>There is no need to set up additional variables to store the an index with a for...of loop. The loop will iterate over each element in the iterable object and terminate itself when it reaches the last item. - so you don't need to track the number of items in the array. In the example an array was used but for...of loops also work with strings, sets, and other array-like objects.</p>
+                <br>
+                <p>Therefore, a for loop should be opted for if you need to access the indices or need finer control to determine what elements you want to loop over.</p>
+                <br>
+                <h3>Use Case: For loop vs for...of loop</h3>
+                <p>The for...of loop is not a complete replacement for the for loop. For example: </p>
+                <pre><code class="language-js">const nums = [1, 2, 3];
+    
+for (let i = nums.length - 1; i >= 0; i--) { 
+    console.log(nums[i]);
+}
+
+console.log('Time is up!');</code></pre>
+                <p>In this exmaple, itterating in reverse, you would not be able to use a for..of loop to complete this task. However, with a regular for loop, you have access to indices of the elements to determine a stopping condition and the ability to set a counter.</p>
+            </article>
+
+            <article id="objects">
+                
+                <h2>Objects</h2>
+
+
+                <p>There are only seven fundamental data types in JavaScript, and six of those are the primitive data types: string, number, boolean, null, undefined, and symbol. With the seventh type, objects, we open our code to more complex possibilities. We can use JavaScript objects to model real-world things, like a basketball, or we can use objects to build the data structures that make the web possible.</p>
+                <br>
+                <p>At their core, JavaScript objects are containers storing related data and functionality, but that deceptively simple task is extremely powerful in practice.</p>
+                <br>
+
+                <h3>Creating Object Literals</h3>
+
+                <p>Objects can be assigned to variables just like any JS type. We use curly braces to designate an object literal:</p>
+                <p><code class="language-js">let exampleObject = {}</code></p>
+                <p>We fill an object with unordered data. This data is organized into key-value pairs. A key is like a variable name that points to a location in memory that holds a value.</p>
+                <br>
+                <p>A key's value can be any data type in the language including functinos or other objects.</p>
+                <p>We make a key-value pair by writing the key's name, or identifier, followed by a colon and then the value.We seperate each key-value pair in an object literal with a comma. Keys are strings, but when we have a key that does not have any special characters in it, Javascript allows us to omit the quotation marks.</p>
+                <br>
+                <pre><code class="language-js">let car = {
+    'Fuel Type': 'diesel', 
+    color: 'silver'
+};</code></pre>
+
+                <p>The car object has two properties Fuel Type and color. The 'Fuel Type' has quotation marks because it contains a space character.</p>
+                <br>
+
+                <h3>Accessing Properties</h3>
+
+                <h4>Using Dot Notation</h4>
+                <hr>
+                <p>One way to access an object's property is using dot nation.</p>
+                <pre><code class="language-js">'hello'.length; // Returns 5</code></pre>
+                <p>With property dot notation, we write the objects name, followed by the dot operator and then the property name (key: </p>
+
+                <pre><code class="language-js">let car = { 
+    home: 'Swansea', 
+    color: 'Red'
+};
+car.home; // Returns 'Swansea'
+car.color; // Returns 'Red'</code></pre>
+
+                <p>If we try to access a property that does not exist on that object, <code class="language-js">undefined</code> will be returned.</p>
+                <br>
+
+                <h4>Bracket Notation</h4>
+                <hr>
+                <p>Another way to access a key's value is by using bracket notation.</p>
+                <p>Similarly as to when indexing an array: </p>
+                <pre><code class="language-js">['a', 'b', 'c'][0]; //returns a;</code></pre>
+                <p>To use bracket notation to access an object's property, we pass in the property name (key) as a string.</p>
+                <br>
+                <p>We <strong>must</strong> use bracket notation when accessing keys that have numbers, spaces, or special characters in them. Without bracket notation in these situations, our code would through an error.</p>
+                <pre><code class="language-js">let spaceship = {
+    'Fuel Type': 'Turbo Fuel',
+    'Active Duty': true,
+    homePlanet: 'Earth',
+    numCrew: 5
+};
+spaceship['Active Duty'];   // Returns true
+spaceship['Fuel Type'];   // Returns  'Turbo Fuel'
+spaceship['numCrew'];   // Returns 5
+spaceship['!!!!!!!!!!!!!!!'];   // Returns undefined</code></pre>
+                <p>With bracket notation you can also use a variable inside the brackets to select the keys of an object. This can be especially helpful when working with functions: </p>
+<pre><code class="language-js">let returnAnyProp = (objectName, propName) => objectName[propName];
+
+returnAnyProp(spaceship, 'homePlanet'); // Returns 'Earth'</code></pre>
+
+                <p>If we tried to write this function with dot notation ( objectName.propName ) the computer would look for a key of 'propName' on our object and not the value of the propName paramater.</p>
+
+                <h4>Property Assignment</h4>
+                <hr>
+                <p>Objects are mutable, we can use dot notation, or bracket notation and the assignment operator to add new key-value pairs to an object or change an existing property.</p>
+
+                <pre><code class="language-js">car['Fuel Type'] = 'Electric';
+car.color = 'gold';</code></pre>
+
+                <p>One of two things can happen with property assignment: </p>
+                <ol>
+                    <li>If the property already exists on the object, whatever value it held before will be replaced with the newly assigned value.</li>
+                    <li>If there was no property with that name, a new property will be added to that object.</li>
+                </ol>
+
+                <aside><strong>Note: </strong> It is important to know that although we can't reassign an object declared <code class="language-js">const</code>, we can still mutate it, meaning we can add new properties and change the properties that are there.</aside>
+
+                <h4>Methods</h4>
+                <hr>
+                <p>When the data stored on an object is a function we call that a method. A property is what an object has, while a method is what an object does.</p>
+                <br>
+                <p>We can include methods in our object literals by creating ordinary, comma-seperated key-value pairs. The key serves as our method's name, while the value is an anonymoous function expression.</p>
+                <pre><code class="language-js">const alienShip = { 
+    invade: function() { 
+        console.log("Hello! We have come to dominate your planet!");
+    }
+};</code></pre>
+                <p>With the new method syntax introduced in ES6 we can omit the colon and the function keyword: </p>
+                <pre><code class="language-js">const alienShip = { 
+    invade () { 
+        console.log("Hello! We have come to dominate your planet!");
+    }
+};</code></pre>
+
+
+                <h4>Nested Objects</h4>
+                <hr>
+                <p>In application code, objects are often nested -- an object might have another object as a property which in turn could have a property that's an array of even more objects!</p>
+                <br>
+                <p>Imagine an object for a spaceship, we want a crew object. This will contain all the crew members who do important work on the craft. Each of those crew members are objects themselves. They have properties like name and degree, and they each have unique methods based on their roles. We can also nest other objects in the spaceship object such as a telescope or nest detaisl about the spaceship's computer inside a parent of nanoelectronics objects</p>
+
+<pre><code class="language-js">const spaceship = {
+    telescope: {
+       yearBuilt: 2018,
+       model: '91031-XLT',
+       focalLength: 2032 
+    },
+   crew: {
+       captain: { 
+           name: 'Sandra', 
+           degree: 'Computer Engineering', 
+           encourageTeam() { console.log('We got this!') } 
+        }
+   },
+   engine: {
+       model: 'Nimbus2000'
+    },
+    nanoelectronics: {
+        computer: {
+           terabytes: 100,
+           monitors: 'HD'
+        },
+       'back-up': {
+          battery: 'Lithium',
+          terabytes: 50
+        }
+   }
+}; </code></pre>
+                    <p>We can chain propertors to access nested properties. We'll have to pay attention to which operator makes sense to use in each layer.</p>
+<pre><code class="language-js">spaceship.nanoelectronics['back-up'].battery;
+// Returns 'Lithium'</code></pre>
+
+                    <h4>Pass By Reference</h4>
+                    <hr>
+                    <p>Objects are passed by reference. This means when we pass a variable assigned to an object into a function as an argument, the computer inerprets the parameter name as pointing to the space in memory holding that object. As a result, functions which change object properties actually mutate the object permanently (even when the object is assigned to a const variable)</p>
+
+<pre><code class="language-js">const spaceship = {
+    homePlanet : 'Earth',
+    color : 'silver'
+};
+
+    let paintIt = obj => {
+    obj.color = 'glorious gold'
+};
+
+paintIt(spaceship);
+
+spaceship.color // Returns 'glorious gold'</code></pre>
+
+                    <p>The function paintIt() permanently changed the color of the spaceship object. However reassignment of the spaceship variable wouln't work the same way: </p>
+
+<pre><code class="language-js">let spaceship = {
+    homePlanet : 'Earth',
+    color : 'red'
+};
+let tryReassignment = obj => {
+    obj = {
+        identified : false, 
+        'transport type' : 'flying'
+}
+console.log(obj) // Prints {'identified': false, 'transport type': 'flying'}
+   
+  };
+  tryReassignment(spaceship) // The attempt at reassignment does not work.
+  spaceship // Still returns {homePlanet : 'Earth', color : 'red'};
+   
+  spaceship = {
+    identified : false, 
+    'transport type': 'flying'
+  }; // Regular reassignment still works.</code></pre>
+
+                    <ul>
+                        <li>Spaceship object is declared with let. This allows it to reassign to a new object with identified and 'transport type' properties with no issues.</li>
+                        <li>When tried reassign using a function, the reassignment didn't stick.</li>
+                        <li>When spaceship is passed in the function, obj became a refernece to the memory location of the spaceship object, but <strong>not</strong> to the spaceship variable. This is because the obj parameter of the tryReassignment() function is a variable in its own right. The body of tryReassignment() has no knowledge of the spaceship variable.</li>
+                        <li>While reassigning in the body of tryReassignment(), the obj variable came to refer to the memory location of the object, while the spaceship variable was completely unchanged from its earlier value.</li>
+                    </ul>
+
+
+                    <h4>Looping Through Objects</h4>
+                    <hr>
+                    <p>Javascript has given us an alternative solution for iterating through objects with the for...in syntax.</p>
                     
+                    <aside><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in#iterating_over_own_properties_only">MDN Docs for for...in</a></aside>
+
+                    <p>for...in will execute a given block of code for each property in an object.</p>
+
+<pre><code class="language-js">let spaceship = { 
+    crew: {
+        captain: { 
+          name: 'Lily', 
+        },
+        'chief officer': { 
+          name: 'Dan', 
+        },
+        medic: { 
+          name: 'Clementine', 
+        }
+      }
+    }; 
+     
+    // for...in
+    for (let crewMember in spaceship.crew) {
+      console.log(`${crewMember}: ${spaceship.crew[crewMember].name}`);
+    }
+</code></pre>
+                    <p>Here, the for...in loop will iterate through each element of spaceship.crew, in each iteration, the variable crewMember is set to on of spaceship.crew's keys, enabling us to log a list of crew members' role and name.</p>
+
+                    <h4>Arrow functions and 'this' keyword</h4>
+                    <hr>
+                    <p>If we use the this keyword in a method, then the value of this is the calling object. However, it becomes a bit more complicated when we start using arrow functions.</p>
+                    <br>
+                    <p>Arrow functions inherently bind, or tie an already defined this value to the function itself that is NOT the calling object. </p>
+                    <br>
+                    <p>In other words, try to avoid using this keyword in an arrow function as it in turn calls for a global object with a value of this, not the calling object itself.</p>
+
+                    <h4>Privacy</h4>
+                    <hr>
+                    <p>Certain languages have privacy built-in for objects, but JavaScript does not have this feature. Rather, JavaScript developers follow naming conventions that signal to other developers how to interact with a property. One common convention is to place an underscore <code class="language-js">_</code> before the name of a property to mean that the property should not be altered. For example: </p>
+<pre><code class="language-js">const bankAccount = { 
+    _amount: 1000
+}</code></pre>
+                    <p>That being said, even with the underscore the property is still able to be reassigned.</p>
+
+                    <h4>Setters and Getters</h4>
+                    <hr>
+                    <h4>Getters</h4>
+                    <p>Getters are methods that get and return the internal properties of an object But they can do more than just retrieve the value of a property!</p>
+                    <p>Example of a getter method: </p>
+<pre><code class="language-js">const person = {
+    _firstName: 'John',
+    _lastName: 'Doe',
+    get fullName() {
+      if (this._firstName && this._lastName){
+        return `${this._firstName} ${this._lastName}`;
+      } else {
+        return 'Missing a first name or a last name.';
+      }
+    }
+  }
+   
+// To call the getter method: 
+person.fullName; // 'John Doe'</code></pre>
+                    <p>Notice that in the getter method above: </p>
+                    <ul>
+                        <li>We use the <code class="language-js">get</code> keyword followed by a function.</li>
+                        <li>We use an <code class="language-js">if...else</code> conditional to check if both <code class="language-js">_firstName</code> and <code class="language-js">_lastName</code> exist (by making sure they both return truthy values) and then return a different value depending on the result.</li>
+                        <li>We can access the calling object's internal properties using <code class="language-js">this</code>. In <code class="language-js">fullName</code>, we're accessing both <code class="language-js">this._firstName</code> and <code class="language-js">this._lastName</code></li>
+                        <li>In the last line we call <code class="language-js">fullName</code> on <code class="language-js">person</code>. In general, getter methods do not need to be called witha  set of parentheses. Syntactically, it looks like we're accessing a property.</li>
+                    </ul>
+                    <p>Advantages of using getter methods: </p>
+                    <ul>
+                        <li>Getters can perform an action on the data when getting a property.</li>
+                        <li>Getters can return different values using conditionals</li>
+                        <li>In a getter, we can access the properties of the calling object using this</li>
+                        <li>Then functionality of our code is easier for other developers to understand</li>
+                    </ul>
+
+                    <p>Another thing to keep in mind when using getter (and setter) methods is that properties cannot share the same name as the getter/setter function. If we do so, then calling the method will result in an infinite call stack error. One workaround is to add an underscore before the property name like in the example above.</p>
+
+                    <h4>Setters</h4>
+                    <p>Along with getter methods, we can also create setter methods which reassign values of existing properties within an object. For example: </p>
+<pre><code class="language-js">const person = { 
+    _age: 37,
+    set age(newAge){
+        if (typeof newAge === 'number'){
+            this._age = newAge;
+        } else { 
+            console.log('You must assign a number to age');
+        }
+    }
+</code></pre>
+                    <p>Notice that in the example above: </p>
+                    <ul>
+                        <li>We can perform a check for what value is being assigned to <code>this._age</code></li>
+                        <li>When we use the setter method, only values that are numbers will reassign <code>this._age</code></li>
+                        <li>There are different outputs depending on what values are used to reassign <code>this._age</code></li>
+                    </ul>
+                    <p>Then to use the setter method: </p>
+<pre><code class="language-js">person.age = 40;
+console.log(person._age); // Logs: 40;
+person.age = '40'; //Logs you must assign a number to age
+</code></pre>
+                    <p>Setter methods like <code>age</code> do not need to be called with a set of parentheses. Syntactically, it looks like we're reassigning the value of a property.</p>
+                    <br>
+                    <p>Like getter methods, there are similar advantages to using setter methods that include checking input, performing actions on properties, and displaying a clear intention of how the object is supposed to be used. Nonetheless, even with a setter method, it is still possible to directly reasign properties. For example, in the example above, we can still set <code>._age</code> directly: </p>
+<pre><code class="language-js">person._age = 'forty-five'
+console.log(person._age)l // Prints forty-five
+</code></pre>
+
+                <h3>Factory Functions</h3>
+
+                <p>Factory functions is a function that returns an object and can be reused to make multiple object instances. Factory functions can also have parameters allowing us to custoize the object that gets returned.</p>
+
+                <p>For example, if we were to create an objcet to represent monsters in Javascript. There are many different types of monsters and we could go about making each monster individually but we can also use a factory function to make our lives easier.</p>
+<pre><code class="language-js">const monsterFactory = (name, age, energySource, catchPhrase) => { 
+    return { 
+        name: name,
+        age: age,
+        energySource: energySource,
+        scare() { 
+            console.log(catchPhrase);
+        }
+    }
+};
+</code></pre>
+                <p> We ca call <code>monsterFactory</code> with the necessary arguments and assign the return value to a variable: </p>
+<pre><code class="language-js">const ghost = monsterFactory('Ghouly, 251, 'ectoplasm', 'BOO!');  
+ghost.scare(); // Returns: 'BOO!'
+</code></pre>
+                <p>Now we have a <code>ghost</code> object as a result of calling <code>monsterFactory()</code> with the needed arguments. With this in place, we woudlnt' have to create an object literal every time a new monster was needed.</p>
+
+                <h4>Property Value Shorthand</h4>
+                <hr>
+                <p>ES6 introduced a shortcut for assigning properties to variables knows as destructuring.</p>
+
+                <p>We can use a destructuring technique, called property value shorthand to save some time and keystrokes when creating factory functions: </p>
+<pre><code class="language-js">const monsterFactory = (name, age) => { 
+    return { 
+        name, 
+        age
+    }
+</code></pre>
+
+                <h4>Descructured Assignment</h4>
+                <hr>
+                <p>Often we want to extract key-value pairs from objects and save them as variables. Take for example the following object: </p>
+<pre><code class="language-js">const robot = {
+    model: '1E78V2',
+    energyLevel: 100,
+    functionality: {
+      beep() {
+        console.log('Beep Boop');
+      },
+      fireLaser() {
+        console.log('Pew Pew');
+      },
+    }
+};
+</code></pre>
+                <p>If we wanted to extract the <code>model</code> property as a variable, we could use the following code: </p>
+<pre><code class="language-js">const model = robot.model;
+console.log(model) // prints '1E78V2'
+</code></pre>
+                <p>However, we can also take advantage of a destructuring technique called desctructured assignment to save ourselves some key strokes. In desctructured assignment we create a variable with the name of an object's key that is wrapped in curly braces <code> { } </code> and assign to it the object. For example: </p>
+<pre><code class="language-js">const { model } = robot;
+console.log(model); // Prints '1E78V2' </code></pre>
+                <aside><strong>Note: </strong> We can even use desctructured assignment to grab nested properties or functions from an object: </aside>
+<pre><code class="language-js">const { functionality } = robot;
+functionality.beep(); // outputs 'Beep Boop'
+</code></pre>
+
+                <h4>Built-in Object Methods</h4>
+                <hr>
+                <p>Objects also have their own built-in methods, for example we have access to object instance methods like: <code>.hasOwnProperty()</code>, <code>valueOf()</code> and loads more, <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object#Methods">MDN object docs</a></p>
+
             </article>
 
             <article id="resources">
@@ -229,9 +644,6 @@ switch (groceryItem) {
                         <p> List of all helpful info on JS from Codecademy</p>
                     </a>
             </article>
-                <article>
-                    <p>wadsadasd</p>
-                </article>
 
         </div>
     </main>
