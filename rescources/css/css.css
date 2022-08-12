@@ -18,6 +18,11 @@ nav#topics ul li a:hover {
 }
 /* Main */
 
+img { 
+    max-width: 70%;
+    height: auto;
+}
+
 
 /* Main > Breakpoints */ 
 

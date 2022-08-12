@@ -38,6 +38,10 @@
                 <li><a href="#arrays">Arrays</a></li>
                 <li><a href="#loops">Loops</a></li>
                 <li><a href="#objects">Objects</a></li>
+                <li><a href="#higher-order-functions">Higher Order Functions</a></li>
+                <li><a href="#iterators">Iterators</a></li>
+                <li><a href="#dom">The DOM</a></li>
+                <li><a href="#events">Events</a></li>
                 <li><a href="#resources">Resources</a></li>
             </ul>
         </nav>
@@ -548,18 +552,18 @@ person.fullName; // 'John Doe'</code></pre>
 </code></pre>
                     <p>Notice that in the example above: </p>
                     <ul>
-                        <li>We can perform a check for what value is being assigned to <code>this._age</code></li>
-                        <li>When we use the setter method, only values that are numbers will reassign <code>this._age</code></li>
-                        <li>There are different outputs depending on what values are used to reassign <code>this._age</code></li>
+                        <li>We can perform a check for what value is being assigned to <code class="language-js">this._age</code></li>
+                        <li>When we use the setter method, only values that are numbers will reassign <code class="language-js">this._age</code></li>
+                        <li>There are different outputs depending on what values are used to reassign <code class="language-js">this._age</code></li>
                     </ul>
                     <p>Then to use the setter method: </p>
 <pre><code class="language-js">person.age = 40;
 console.log(person._age); // Logs: 40;
 person.age = '40'; //Logs you must assign a number to age
 </code></pre>
-                    <p>Setter methods like <code>age</code> do not need to be called with a set of parentheses. Syntactically, it looks like we're reassigning the value of a property.</p>
+                    <p>Setter methods like <code class="language-js">age</code> do not need to be called with a set of parentheses. Syntactically, it looks like we're reassigning the value of a property.</p>
                     <br>
-                    <p>Like getter methods, there are similar advantages to using setter methods that include checking input, performing actions on properties, and displaying a clear intention of how the object is supposed to be used. Nonetheless, even with a setter method, it is still possible to directly reasign properties. For example, in the example above, we can still set <code>._age</code> directly: </p>
+                    <p>Like getter methods, there are similar advantages to using setter methods that include checking input, performing actions on properties, and displaying a clear intention of how the object is supposed to be used. Nonetheless, even with a setter method, it is still possible to directly reasign properties. For example, in the example above, we can still set <code class="language-js">._age</code> directly: </p>
 <pre><code class="language-js">person._age = 'forty-five'
 console.log(person._age)l // Prints forty-five
 </code></pre>
@@ -580,11 +584,11 @@ console.log(person._age)l // Prints forty-five
     }
 };
 </code></pre>
-                <p> We ca call <code>monsterFactory</code> with the necessary arguments and assign the return value to a variable: </p>
+                <p> We ca call <code class="language-js">monsterFactory</code> with the necessary arguments and assign the return value to a variable: </p>
 <pre><code class="language-js">const ghost = monsterFactory('Ghouly, 251, 'ectoplasm', 'BOO!');  
 ghost.scare(); // Returns: 'BOO!'
 </code></pre>
-                <p>Now we have a <code>ghost</code> object as a result of calling <code>monsterFactory()</code> with the needed arguments. With this in place, we woudlnt' have to create an object literal every time a new monster was needed.</p>
+                <p>Now we have a <code class="language-js">ghost</code> object as a result of calling <code class="language-js">monsterFactory()</code> with the needed arguments. With this in place, we woudlnt' have to create an object literal every time a new monster was needed.</p>
 
                 <h4>Property Value Shorthand</h4>
                 <hr>
@@ -614,11 +618,11 @@ ghost.scare(); // Returns: 'BOO!'
     }
 };
 </code></pre>
-                <p>If we wanted to extract the <code>model</code> property as a variable, we could use the following code: </p>
+                <p>If we wanted to extract the <code class="language-js">model</code> property as a variable, we could use the following code: </p>
 <pre><code class="language-js">const model = robot.model;
 console.log(model) // prints '1E78V2'
 </code></pre>
-                <p>However, we can also take advantage of a destructuring technique called desctructured assignment to save ourselves some key strokes. In desctructured assignment we create a variable with the name of an object's key that is wrapped in curly braces <code> { } </code> and assign to it the object. For example: </p>
+                <p>However, we can also take advantage of a destructuring technique called desctructured assignment to save ourselves some key strokes. In desctructured assignment we create a variable with the name of an object's key that is wrapped in curly braces <code class="language-js"> { } </code> and assign to it the object. For example: </p>
 <pre><code class="language-js">const { model } = robot;
 console.log(model); // Prints '1E78V2' </code></pre>
                 <aside><strong>Note: </strong> We can even use desctructured assignment to grab nested properties or functions from an object: </aside>
@@ -628,7 +632,420 @@ functionality.beep(); // outputs 'Beep Boop'
 
                 <h4>Built-in Object Methods</h4>
                 <hr>
-                <p>Objects also have their own built-in methods, for example we have access to object instance methods like: <code>.hasOwnProperty()</code>, <code>valueOf()</code> and loads more, <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object#Methods">MDN object docs</a></p>
+                <p>Objects also have their own built-in methods, for example we have access to object instance methods like: <code class="language-js">.hasOwnProperty()</code>, <code class="language-js">valueOf()</code> and loads more, <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object#Methods">MDN object docs</a></p>
+            </article>
+
+            <article id="higher-order-functions"> 
+
+                <h2>Higher-Order Functions</h2>
+                    <p>Since functions can behave like any other type of data in Javascript. Therefore functions can accept other functions as parameters. A Higher-order function is a function that either accepts functions as parameters, returns a function, or both.</p>
+                    <p>Functions that get passed in as parameters are called callback functions. Callback functions get invoked during the execution of the higher-order function.</p>
+                    <br>
+                    <p>When invoking a higher-order function, and pass another function in as an arguemnt, we don't invoke the argument function. Invoking it would evaluate to passing in the return value of that function call. With callback functions, we pass in the function itself by typing the function name <strong>without</strong> parentheses: </p>
+<pre><code class="language-js">const higherOrderFunc = param => { 
+    param();
+    return `I just invoked ${param.name} as a callback function!`
+}
+
+const anotherFunc = () => { 
+    return "I'm being invoked by the higher-order function!";
+}
+
+higherOrderFunc(anotherFunc);
+</code></pre>
+
+                <aside>We could also invoke a higher-order function with an anonymous function. For example: Here is one that invokes an anonymous function that counts to 10.</aside>
+<pre><code class="language-js">higherOrderFunction(() => { 
+    for (let i = 0; i <= 10; 1++){
+        console.log(i);
+    }
+});</code></pre>
+            </article>
+
+            <article id="iterators">
+
+                <h2>Iterators</h2>
+
+                    <p>One tool for iterating is a <code class="language-js">for</code> loop. However, we also have access to built-in array methods which make looping easier.</p>
+                    <p>The built-in JavaScript array methods that help us iterate are called <strong>iteration methods</strong>, at times reffered to as iterators. Iterators are methods called on arrays to manipulate elements and return values. </p>
+                
+                <h3>The .ForEach() Method</h3>
+
+                    <p>Aptly named, .forEach() will excecute the same code for each element of an array.</p>
+
+<pre><code class="language-js">const groceries = ['brown sugar', 'salt', 'cranberries'];
+
+groceries.forEach(function(groceryItem) { 
+    console,log(' - ' + groceryItem);
+});</code></pre>
+                    <p>The code above will log a nicely formatted list of the groceries to the console. Here is an explanation of the syntax invoking <code class="language-js">.forEach()</code></p>
+                    <ul>
+                        <li><code class="language-js">groceries.forEach()</code> calls the <code class="language-js">forEach</code> method on the groceries array</li>
+                        <li><code class="language-js">.forEach()</code> takes an argument of callback function.</li>
+                        <li><code class="language-js">.forEach()</code> loops through the array and executes the callback function for each element. During the execution, the current element i passed as an argument to the callback function.</li>
+                        <li>The return value for <code class="language-js">.forEach()</code> will always be undefined.</li>
+                    </ul>
+                    <br>
+                    <aside>Another way to pass a callback for <code class="language-js">.forEach()</code> is to use arrow function syntax.</aside>
+<pre><code class="language-js">groceries.forEach(groceryItem => console.log(groceryItem));</code></pre>
+                    <p>We can also define a function beforehand to be used as the callback function</p>
+<pre><code class="language-js">function printGrocery(element) { 
+    console.log(element);
+}
+
+groceries.forEach(printGrocery);
+</code></pre>
+                <hr>
+                <br>
+                <h3>The .map() Method</h3>
+
+                <p>When <code class="language-js">.map()</code> is called on an array, it takes an argument of a callback function and reutrns a new array. For example: </p>
+<pre><code class="language-js">const numbers = [1, 2, 3, 4, 5];
+
+const bigNumbers = numbers.map(number => { 
+    return number * 10;
+})
+</code></pre>
+                <p><code class="language-js">.map()</code> works in a similar manner to <code class="language-js">.forEach()</code> -- The major difference is that <code class="language-js">.map()</code> returns a new array.</p>
+
+                <p>In the example above: </p>
+                <ol>
+                    <li><code class="language-js">numbers</code> is an array of numbers</li>
+                    <li><code class="language-js">bigNumbers</code> will store the return value of calling <code class="language-js">.map()</code> on <code class="language-js">numbers</code></li>
+                    <li><code class="language-js">numbers.map</code> will iterate through each element in the <code class="language-js">numbers</code> array and pass the element into the callback function</li>
+                    <li><code class="language-js">return number * 10</code> is the code we wish to execute upon each element in the array.</li>
+                </ol>
+                <hr>
+                <br>
+
+                <h3>The .filter() method</h3>
+
+                <p>Like <code class="language-js">.map()</code>, <code class="language-js">.filter()</code> returns an array of elements after filtering out certain elements from the original array. The callback function for <code class="language-js">.filter()</code> method should return true or false depending on the element that is passed to it. The elements that cause the callback function to return true are added to the new array.</p>
+                <p>For example: </p>
+<pre><code class="language-js">const words= ['chair', 'music', 'pillow', 'brick'];
+    
+const shortWords = words.filter(word => { 
+    return word.length < 6;
+})
+</code></pre>
+                <ul>
+                    <li><code class="language-js">words</code> is an array of strings</li>
+                    <li><code class="language-js">const shortWords = </code> delclares a new variable that will store the returned array from invoking <code class="language-js">.filter()</code></li>
+                    <li>The callback function is an arrow function that has a single parameter, <code class="language-js">word</code>. Each element in the words array will be passed to this function as an argument</li>
+                    <li><code class="language-js">words.length < 6 </code> is the condition in the callback function. Any word from words array that has fewer than 6 characters will be added to the shortWords array.</li>
+                </ul>
+
+                <aside><strong>Note: </strong>Observe how <code class="language-js">words</code> was not mutated, and <code class="language-js">shortWords is a new array.</code></aside>
+                <hr>
+                <br>
+
+                <h3>The .findIndex() Method</h3>
+
+                <p>Calling <code class="language-js">.findIndex()</code> on an array will return the index of the first element that evaluates to tru in the callback function</p>
+<pre><code class="language-js">const jumbledNums = [123, 25, 78, 5, 9];
+
+const lessThanTen = jumbledNums.findIndex(num => { 
+    return num < 10;
+})
+</code></pre>
+
+                <ul>
+                    <li><code class="language-js">jumbledNums</code> is an array that contains elements that are numbers</li>
+                    <li><code class="language-js">const lessThanTen = </code> declares a new variable that stores the returned index number from invoking <code class="language-js">.findIndex()</code></li>
+                    <li>The callback function is an arrow function that has a single paramter, num. Each element in the <code class="language-js">jumbledNums</code> array will be passed to this function as an argument</li>
+                    <li><code class="language-js">num < 10;</code> is the condition that elements are checked against. <code class="language-js">.findIndex()</code> will return the index of the first element which evaluates to true for that condition.</li>
+                </ul>
+
+                <aside>If there isn't a single element in the array that satisfies the condition in the callback, then <code class="language-js">.findIndex()</code> will return -1.</aside>
+                <hr>
+                <br>
+
+                <h3>The .reduce() Method</h3>
+
+                <p>The <code class="language-js">.reduce()</code> method returns a single value after iterating through the elements of an array, thereby <strong>reducing</strong> the array. Take a look at the example below: </p>
+<pre><code class="language-js">const numbers = [1, 2, 4, 10];
+
+const summedNums = numbers.reduce((accumulator, currentValue) => { 
+    return accumulator + currentValue; 
+})
+</code></pre>
+                <br>
+                <aside>Here are the values of <code class="language-js">accumulator</code> and <code class="language-js">currentValue</code> as we iterate through the <code class="language-js">numbers</code> array: </aside>
+                <table>
+                    <tr>
+                    <th>Iteration</th>
+                    <th><code class="language-js">accumulator</code></th>
+                    <th><code class="language-js">currentValue</code></th>
+                    <th>return value</th>
+                    </tr>
+                    <tr>
+                        <td>First</td>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>Second</td>
+                        <td>3</td>
+                        <td>4</td>
+                        <td>7</td>
+                    </tr>
+                    <tr>
+                        <td>Third</td>
+                        <td>7</td>
+                        <td>10</td>
+                        <td>17</td>
+                    </tr>
+                </table>
+                <br>
+
+                <ul>
+                    <li><code class="language-js">numbers</code> is an array that contains numbers</li>
+                    <li><code class="language-js">summedNums</code> is a variable that stores the returned value of invoking <code class="language-js">.reduce()</code></li>
+                    <li>The callback function has two paramters, <code class="language-js">accumulator</code> and <code class="language-js">currentValue</code>. The value of accumulator starts off as the value of the first element in the array and the currentValue starts as the second element.</li>
+                    <li>As <code class="language-js">.reduce()</code> iterates through the array, the return callback function becomes the <code class="language-js">accumulator</code> value for the next iteration, <code class="language-js">currentValue</code> takes on the value of the current element in the looping process</li>
+                </ul>
+
+                <aside>The <code class="language-js">.reduce()</code> method can also take an optional second paramter to set an inital value for <code class="language-js">accumulator</code> (remember, the first argument is the callback function). For instance: </aside>
+<pre><code class="language-js">const numbers = [1, 2, 4, 10];
+
+const summedNums = numbers.reduce((accumulator, currentValue) => { 
+    return accumulator + currentValue
+}, 100) // <- Second arguemnt for .reduce()
+
+console.log(summedNums); // Output: 117 - as apposed to 17.
+</code></pre>
+            <br>
+            <p>Here's an updated chart that accounts for the second argument of 100: </p>
+            <table>
+                <tr>
+                    <th>Iteration #</th>
+                    <th><code class="language-js">accumulator</code></th>
+                    <th><code class="language-js">currentValue</code></th>
+                    <th>return value</th>
+                </tr>
+                <tr>
+                    <td>First</td>
+                    <td>100</td>
+                    <td>1</td>
+                    <td>101</td>
+                </tr>
+                <tr>
+                    <td>Second</td>
+                    <td>101</td>
+                    <td>2</td>
+                    <td>103</td>
+                </tr>
+                <tr>
+                    <td>Third</td>
+                    <td>103</td>
+                    <td>4</td>
+                    <td>107</td>
+                </tr>
+                <tr>
+                    <td>Fourth</td>
+                    <td>107</td>
+                    <td>10</td>
+                    <td>117</td>
+                </tr>
+            </table>
+
+            <br>
+            <li class="bookmark">
+                <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array#Iteration_methods" target="_blank">
+                    <h3>MDN's Array iteration methods page</h3>
+                </a>
+            </li>
+            </article>
+
+            <article id="dom">
+                
+                <h2>The DOM ( <strong>D</strong>ocument <strong>O</strong>bject <strong>M</strong>odel )</h2>
+
+                <p>The <code class="language-js">document</code> object in JavaScript is the door to the DOM structure. The <code class="language-js">document</code> allows you to access the root node of the DOM tree. Before you can access a specific element in the page, first you must access the document structure itself. The <code class="language-js">document</code> object allows scripts to access children of the DOM as properties</p>
+
+                <p>For example, if you want to access the <code class="language-js">&lt;body&gt;</code> element from your script, you can access it as a property of the document object by using <code class="language-js">document.body</code>. This property will return the body element of the DOM.</p>
+
+                <aside><a href=https://developer.mozilla.org/en-US/docs/Web/API/Document target="_blank">List of all document properties</a></aside>
+
+                <h3>The .innerHTML property</h3>
+
+                <p><code class="language-js">.innerHTML</code> property allows you to access and set the contents of an element.</p>
+                <p>Heres how you would reassign the contents of the <code class="language-js">&lt;body&gt;</code> elemenet</p>
+<pre><code class="language-js">document.body.innerHTML = 'This is an example.';</code></pre>
+                <br>
+                <p>The <code class="language-js">.innerHTML</code> property can also add any valid HTML elements. The following example replaces the contents of the body element by assiging a h2 element as a child inside the body element: </p>
+<pre><code class="language-js">document.body.innerHTML = '&lt;h2&gt;This is now a heading!&lt;/h2&gt;'</code></pre>
+                <hr>
+                <br>
+
+                <h3>Selecting and Modifying Elements</h3>
+                <p>The DOM interface allows us to access a specific element with CSS selectors.</p>
+                <p>CSS selectors can include a tag name, class or ID</p>
+                <br>
+                <p>The <code class="language-js">.querySelector()</code> method allows us to specify a CSS selector as a string and returns the first element that matches that selector. The following code would return the first paragraph in the document</p>
+
+<pre><code class="language-js">document.querySelector('p');</code> </pre>
+
+                <p>Along with <code class="language-js">.querySelector()</code>, JavaScript has more targeted methods that select elements based on their class, id or tag name</p>
+                <br>
+                <p>For example, if you want to access an element directly by its ID, you can use the aply named <code class="language-js">.getElementByID()</code> method: </p>
+<pre><code class="language-js">document.getElementByID('bio').innerHTML = 'New description';</code></pre>
+                <p>There is also the <code class="language-js">.getElementsByClassName()</code> and <code class="language-js">.getElementsByTagName()</code> which return an array of elements, instead of just one element. You can use bracket notation to access individual elements of an array: </p>
+
+<pre><code class="language-js">// Set first element of .student class as 'Not yet registered
+document.getElementsByClassName('student')[0].innerHTML = 'Not Yet Registered';
+
+// Set second &lt;li&gt; tag as 'John Doe'
+document.getElementsByTagName('li')[1].innerHTML = 'John Doe';
+</code></pre>
+<br>
+
+<li class="bookmark">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array#Iteration_methods" target="_blank">
+        <h3>MDN's Document object model docs</h3>
+        <p>List of all DOM interfaces</p>
+    </a>
+</li>
+                <hr>
+                <br>
+                <h3>Styling Elements</h3>
+
+                <p>The <code class="language-js">.style</code> property of a DOM element provides access to the inline style of that HTML tag.</p>
+
+                <p>The syntax follows an <code class="language-js">element.style.property</code> format, with the property representing a CSS property. For example, the following code selects the first element with a class of blue and assigns blue as the background-color: </p>
+                
+<pre><code class="language-js">let blueElement = document.querySelector('.blue')
+blueElement.style.backgroundColor = 'blue';
+</code></pre>
+
+                <aside>Unlike CSS the DOM <code class="language-js">.style</code> property does not implement a hyphen as such as <code class="language-js">background-color</code>. Check out this <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference#index" target="_blank">MDN regference page</a> to see a list of how CSS properties are converted into JavaScript</aside>
+                <hr>
+                <br>
+
+                <h3>Traversing the DOM</h3>
+
+                <p>Each element has a <code class="language-js">.parentNode</code> and <code class="language-js">.children</code> property. The .parentNode property returns returns the parent of the specified element in the DOM hierachy.</p>
+                
+                <aside><strong>Note: </strong> that the <code class="language-js">document</code> element is the root node so its .parentNode property will return <code class="language-js">null</code>. The <code class="language-js">.children</code> property returns an array of the specified element's children and if that element has no children, it also wil return <code class="language-js">null</code></aside>
+                <hr>
+                <br>
+
+                <h3>Creating and Inserting Elements</h3>
+
+                <p>Just as the DOM allows scripts to modify existing elements, it also allows for the creation of new ones.</p>
+                <br>
+                <p>The <code class="language-js">.createElement()</code> method creates a new element based on the specified tag name passed into it as an argument. However, it does not append it to the document. It creates an empty element with no inner HTML</p>
+                <br>
+<pre><code class="language-js">let paragraph = document.createElement('p')</code></pre>
+                <p>Here, the .createElement() method takes 'p' as its argument which creates an empty p element and stores it as the paragraph variable.</p>
+                <br>
+                <p>We can then assign values to the properties of the newly created elements: </p>
+<pre><code class="language-js">paragraph.id = 'info';
+paragraph.innerHTML = 'The text inside the paragraph';
+</code></pre>
+
+                <p>In order to create an element and add it tot eh the web page, you must assign it to be the child of an element that already exists on the DOM, referred to as the parent element. We call this process <strong>appending</strong>The <code class="language-js">.appendChild()</Code> mehod will add the a child element as the parent element's last child node.</p>
+                <p>The following code appends the p element stored in paragraph variable to the document body.</p>
+<pre><code class="language-js">document.body.appendChild(paragraph)</code></pre>
+                <p>The <code class="language-js">.appendChild()</code> method does not replace the content inside of the parent, in this case, body. Rather, it appends the new element as the last child of that parent.</p>
+                <hr>
+                <br>
+
+                <h3>Remove an Element</h3>
+
+                <p>The DOM allows allows for the removal of an element. The <code class="language-js">.removeChild()</code> method removes a specified child from a parent.</p>
+<pre><code class="language-js">let paragraph = document.querySelector('p');
+document.body.removeChild(paragraph);
+</code></pre>
+                <p>In the above example code, the .querySelector() method reutrns the first paragraph in the document. Then, the paragraph element is passed as an argument of the .removeChild() method chained to the parent of the paragraph -- document.body. this removes the first paragraph from the document body.</p>
+
+                <p>If you want to hide an element rather than completely delete it, the <code class="language-js">.hidden</code> property allows you to hide it by setting the property to false.</p>
+
+<pre><code class="language-js">document.getElementById('sign').hidden = true;</code></pre>
+
+                <aside>Note: Using .hidden over display = none; removes it from view from screen readers where display = none does not</aside>
+            </article>
+
+
+            <article id="events">
+
+                <h2>Events</h2>
+
+                <p>Events on the web are user interactions and browser manipulations that you can program to trigger functionality. I.E: </p>
+
+                <ul>
+                    <li>A mouse clicking a button</li>
+                    <li>Webpage files loading in the browser</li>
+                    <li>A user swiping right on an image</li>
+                </ul>
+
+                <p>When a user does any of the above actions, they're causing the event to be fired or be triggered.</p>
+
+                <h3>Event Handler Registration</h3>
+                <p>Using <code class="language-js">.addEventListener()</code> method, we can have a DOM element listen for a specific event and execute a block of code when the event is detected. The DOM element that listens for an event is called the event target and the block of code that runs when the event happens is called the event handler</p>
+                <pre><code class="language-js">let eventTarget = document.getElementById('targetElement');
+
+eventTarget.addEventListener('click', function() }{ 
+    // this block of code will run when click event happens on eventTarget element.
+});</code></pre>
+
+            <aside>Instead of using an anonymoous function as the event handler, its best practice to create a named event handler function. This will keep code organized and reusable.</aside>
+            <br>
+            <p>Event Handlers can also be registered by setting an <code class="language-js">.onevent</code> property on a DOM element (event target). The pattern for registering a specific event is to append an element with .on followed by the lowercased event type name. For instance, if we want to register a click event with this pattern: </p>
+<pre><code class="language-js">eventTarget.onclick = eventHandlerFunction; </code></pre>
+
+            <p>It is important to know that this <code class="language-js">.onevent</code> property and <code class="language-js">.addEventListener()</code> will both register event listeners. With <code class="language-js">.onevent</code>, it allows for one event handler function to be attached to the event target. However, with <code class="language-js">.addEventListener()</code> method, we can add multiple event handler functions.</p>
+
+            <h3>Removing Event Listeners</h3>
+
+            <p>The <code class="language-js">.removeEventListener()</code> method is used to reverse the <code class="language-js">.addEventListener()</code> method. This method stops the event target from 'listening' for an event to fire when it no longer needs to.</p>
+            <p><code class="language-js">.removeEventListener()</code> takes two arguements</p>
+            <ol>
+                <li>The event type as a string</li>
+                <li>The event handler function</li>
+            </ol>
+            <p>For example: </p>
+<pre><code class="language-js">eventTarget.removeEventListener('click', eventHandlerFunction);</code></pre>
+            
+            <p>Because there can be multiple event handler functions associated with a particular evewnt, this method needs both the exact event type name and the name of the event handler you want to remove.</p>
+            <aside><strong>Note: </strong> <code class="language-js">.addEventListener()</code> was provided an anonymous function, then that event listener cannot be removed.</aside>
+            <hr>
+            <br>
+
+
+            <h3>Event Object Properties</h3>
+
+            <p>Javacript stores events as Event Objects with their related data and functionalties as properties and methods. When an event is triggeredm the event object can be passed as an argument to the event handler function.</p>
+<pre><code class="language-js">functino eventHandlerFunction(event){ 
+    console.log(event.timeStamp);
+}
+
+eventTarget.addEventListener('click', eventHandlerFunction);
+</code></pre>
+    <aside><a href="https://developer.mozilla.org/en-US/docs/Web/API/Event">MDN page for JS event objects</a></aside>
+
+            <p>In the example above, when the 'click' event is triggered on the eventTarget, the eventHandlerFunction recieves event, the Event object, which has information related to the 'click' event. Then, it logs the time it took for event to be triggered since the document was loaded by accessing the <code>.timeStamp</code> property of the event object </p>
+            <br>
+            <p>There are pre-determined properties associated with event objects. You can call these properties to see information about the event, for example: </p>
+            <ul>
+                <li><code>.target</code> to reference the elemnt that the event is registered to. </li>
+                <li><code>.type</code> to access the name of the event.</li>
+                <li><code>.timeStamp</code> to access the number of milliseconds that passed since the document loaded and the event was triggered.</li>
+                <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Event">MDN event page</a></li>
+            </ul>
+
+            <hr>
+            <br>
+
+            <h3>Event Types</h3>
+
+            <p>It is important to know most events in the DOM take place without being noticed because there are no event handlers connected to them. </p>
+            <li class="bookmark">
+                <a href="https://developer.mozilla.org/en-US/docs/Web/Events">MDN Events reference</a>
+                <p>A list of events that can be handled</p>
+            </li>
+            
 
             </article>
 

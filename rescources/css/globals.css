@@ -113,6 +113,12 @@ aside {
     border-radius: 10px;
 }
 
+/* Images */ 
+img { 
+    max-width: 100%;
+    height: auto;
+}
+
 /* Tables */
 
 
